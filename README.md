@@ -40,5 +40,5 @@ Download and install [Anaconda](https://www.continuum.io/downloads) for Python 3
 It includes Python 3, all required packages and additionally a version of `curl`.
 
 Download and install [msys2](http://msys2.github.io/).
-Open the msys2 shell (or let it open automatically at the end of the installation) and run `pacman -S mingw-w64-x86_64-gcc`.
+Open the msys2 shell (or let it open automatically at the end of the installation) and run `pacman -S --needed mingw-w64-x86_64-toolchain`.
 Add `C:\msys64\mingw64\bin` (or equivalent) to your path.
