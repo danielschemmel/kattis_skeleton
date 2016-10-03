@@ -24,8 +24,8 @@ print("compiling...")
 options = ["-O2", "-std=c++11", "-g", "-ggdb", "-Wall", "-Wextra", "-pedantic" ]
 if args.asan: options += [ "-fsanitize=address,undefined" ]
 else: options += [ "-static" ] # used by kattis, but incompatible with asan
-subprocess.check_call([shutil.which("g++")] + options + ["-I_library", "-o", args.name + "/" + args.name + ".exe"]  + source)
-dependencystr = subprocess.check_output([shutil.which("g++"), "-std=c++11", "-MM", "-I_library"] + source).decode()
+subprocess.check_call([shutil.which("g++")] + options + ["-iquote_library", "-o", args.name + "/" + args.name + ".exe"]  + source)
+dependencystr = subprocess.check_output([shutil.which("g++"), "-std=c++11", "-MM", "-iquote_library"] + source).decode()
 dependencies = set()
 for d in re.finditer(r"^[^:]+:((?:[^\r\n\\]|\\\r?\n?)*(?:\\\r?$(?:[^\r\n\\]|\\\r?\n?)*)*)\r?$", dependencystr, re.MULTILINE):
 	for dep in re.finditer(r"(?:[^\s\\]|\\(?!\r?$))+", d.group(1), re.MULTILINE):
