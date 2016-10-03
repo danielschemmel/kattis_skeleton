@@ -6,7 +6,7 @@ It will automatically download sample input and solution files, create and manag
 ## Usage
 
 ```bash
-python setup.py $PROBLEMID
+python get.py $PROBLEMID
 # do some work
 python run.py $PROBLEMID
 # fix some bugs
